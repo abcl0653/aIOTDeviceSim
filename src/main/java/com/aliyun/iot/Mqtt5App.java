@@ -27,9 +27,9 @@ class Mqtt5PostPropertyMessageListener implements IMqttMessageListener {
  */
 public class Mqtt5App {
     public static void main(String[] args) throws MqttException {
-        String productKey = "a112bibTSZ7";
-        String deviceName = "example2";
-        String deviceSecret = "06bdaca8e660fee3e1ca7e4a7a3047ac";
+        String productKey = "a1jVAS0VArs";
+        String deviceName = "d0001";
+        String deviceSecret = "3a30bb51c2158976af45f8d8338706a4";
 
         //计算Mqtt建联参数
         MqttSign sign = new MqttSign();
@@ -40,9 +40,10 @@ public class Mqtt5App {
         System.out.println("clientid: " + sign.getClientid());
 
         //使用Paho连接阿里云物联网平台
-        String port = "443";
+        String port = "1883";
         //您可登录物联网平台控制台，在实例概览页，找到并单击对应实例，进入实例详情页，查看实例终端节点
-        String broker = "tcp://" + "47.103.160.99" + ":" + port;
+        // String broker = "ssl://" + "${企业版实例下接入域名}" + ":" + port;
+        String broker = "ssl://" + productKey + ".iot-as-mqtt.cn-shanghai.aliyuncs.com" + ":" + port;
         MemoryPersistence persistence = new MemoryPersistence();
         try {
             //Paho Mqtt 客户端
